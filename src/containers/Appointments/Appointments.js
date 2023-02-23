@@ -23,6 +23,8 @@ const Appointments = () => {
 
       if (item) {
         if (item.appointments) {
+          console.log('here ---> ');
+          console.log(item.appointments);
           for (let j = 0; j < item.appointments.length; j++) {
 
             const appointmentObj = {
@@ -30,18 +32,19 @@ const Appointments = () => {
               clientName: item.appointments[j].client_name,
               date: item.appointments[j].appointment
             };
-
+            console.log(appointmentObj);
             tempAppointments.push(appointmentObj);
           }
         }
       }
-
+      
       setAppointments(tempAppointments);
       }
     }
 
   const fetchAppointments = async (params = {}) => {
 
+    if (isLoading) return;
     setAppointments([]);
     setIsLoading(true);
     try {

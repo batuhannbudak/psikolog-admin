@@ -55,7 +55,7 @@ const App = () => {
   return (
     <div className='flex flex-col h-full items-center'>
       <Header />
-      <Router>
+      <Router basename='/demos/psikolog-admin/build/'>
         <div className='max-w-lg flex flex-col grow-1 w-full'>
           <Navigation />
           <Switch>
