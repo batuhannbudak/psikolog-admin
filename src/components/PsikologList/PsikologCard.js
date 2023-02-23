@@ -8,6 +8,10 @@ const PsikologCard = ({ data, innerRef, imgUrl }) => {
   const handleAssignClick = () => {
     window.open(data.appointmentForm, '_blank');
   };
+
+  const handleArangeClick = () => {
+    window.open(data.collaboratorLink, '_blank');
+  }
   return (
     <div className="max-w-lg shadow-sm radius mx-auto my-4" ref={innerRef}>
       <div className="p-10 flex flex-row">
@@ -16,7 +20,7 @@ const PsikologCard = ({ data, innerRef, imgUrl }) => {
           className='w-32 h-32 radius-full border-2 border-blue-400'
           alt='avatar'
         />
-        <div className='pl-10' style={{ maxWidth: '700px' }}>
+        <div className='pl-10' style={{ maxWidth: '600px' }}>
           <div>
             <p className='font-bold text-xl'>
               {data.isim.first}
@@ -55,14 +59,23 @@ const PsikologCard = ({ data, innerRef, imgUrl }) => {
           </div>
         </div>
         <div className='grow-1' />
-        <div>
+        <div className='flex flex-col'>
           <button
             type='button'
-            className='px-4 py-2 bg-tables-dark hover:bg-tables-default font-bold color-white radius'
+            className='px-4 py-2 bg-tables-dark hover:bg-tables-default font-bold color-white radius duration-300'
             onClick={handleAssignClick}
           >
             Danışan Ata
           </button>
+          {data.collaboratorLink && (
+            <button
+              type='button'
+              className='mt-4 px-4 py-2 bg-orange-400 hover:bg-orange-600 font-bold color-white radius duration-300'
+              onClick={handleArangeClick}
+            >
+              Müsaitliğini Düzenle
+            </button>
+          )}
         </div>
       </div>
     </div>
