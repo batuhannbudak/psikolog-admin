@@ -43,8 +43,6 @@ const Appointments = () => {
     }
 
   const fetchAppointments = async (params = {}) => {
-
-    if (isLoading) return;
     setAppointments([]);
     setIsLoading(true);
     try {
@@ -69,12 +67,13 @@ const Appointments = () => {
       startDate: startDate,
       endDate: endDate
     };
-
+    
     fetchAppointments(params);
     
   };
 
   useEffect(() => {
+    console.log('a?');
     fetchAppointments();
   }, []);
 
