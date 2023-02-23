@@ -1,0 +1,55 @@
+/* stylelint-disable */
+html {
+  height: 100%;
+}
+
+body {
+  height: 100%;
+}
+
+.bg-tedavi-bitti {
+  background-color: #959ecc;
+}
+
+.circular-progressbar {
+  --percentage: var(--value);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+}
+
+.circular-progressbar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(var(--primaryColor) calc(var(--percentage) * 1%), var(--secondaryColor) 0);
+  mask: radial-gradient(white 55%, transparent 0);
+  mask-mode: alpha;
+  -webkit-mask: radial-gradient(#0000 55%, #000 0);
+  -webkit-mask-mode: alpha;
+}
+
+.circular-progressbar::after {
+  counter-reset: percentage var(--value);
+  content: counter(percentage) '%';
+  font-size: var(--fontSize);
+  line-height: 29px;
+  font-weight: 500;
+  color: #0A1551;
+}
+
+.date-picker-wrapper {
+  padding: 8px;
+  border: 1px solid #343C6A;
+  width: 220px;
+  border-radius: 4px;
+  margin-bottom: 16px;
+
+  input {
+    width: 100%;
+  }
+}
