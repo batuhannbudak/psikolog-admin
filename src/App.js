@@ -71,6 +71,9 @@ const App = () => {
             <Route path="/psikologs">
               <PsikologsList />
             </Route>
+            <Route path="/login">
+              <Login />
+            </Route>
           </Switch>
         </div>
       </Router>

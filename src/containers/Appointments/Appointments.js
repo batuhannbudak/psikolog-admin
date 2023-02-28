@@ -13,7 +13,7 @@ const Appointments = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [appointments, setAppointments] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isLoading, setIsLoading] = useState(false);
 
 
   const parseAppointments = (data) => {
@@ -49,9 +49,10 @@ const Appointments = () => {
       const res = await AppointmentService.getAppointments(params);
 
       parseAppointments(res.data[0]);
-      setIsLoading(false);
     } catch (error) {
       console.log(error);
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -63,6 +64,8 @@ const Appointments = () => {
   };
 
   const handleSearchClick = () => {
+    if (isLoading) return;
+
     const params = {
       startDate: startDate,
       endDate: endDate
@@ -73,7 +76,6 @@ const Appointments = () => {
   };
 
   useEffect(() => {
-    console.log('a?');
     fetchAppointments();
   }, []);
 

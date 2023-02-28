@@ -9,4 +9,8 @@ export default class AuthenticationService {
   static checkAuthentication() {
     return AxiosClient.get(`${BASE_URL}auth`);
   }
+
+  static logout() {
+    return AxiosClient.post(`${BASE_URL}logout`);
+  }
 }

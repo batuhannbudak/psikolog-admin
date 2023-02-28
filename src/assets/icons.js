@@ -677,4 +677,10 @@ export const IconMagnifyingGlass = () => (
     <path fillRule="evenodd" d="M15.763 17.175a8.5 8.5 0 1 1 1.413-1.413l.031.03 4.5 4.5a1 1 0 0 1-1.414 1.415l-4.5-4.5a.903.903 0 0 1-.03-.032ZM17 10.5a6.5 6.5 0 1 1-13 0 6.5 6.5 0 0 1 13 0Z" clipRule="evenodd">
     </path>
   </svg>
-)
+);
+
+export const IconLogout = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 24 24" className="w-6 h-6">
+    <path fillRule="evenodd" d="M8 4a1 1 0 1 0 0-2H5a3 3 0 0 0-3 3v14a3 3 0 0 0 3 3h3a1 1 0 1 0 0-2H5a1 1 0 0 1-1-1V5a1 1 0 0 1 1-1h3Zm0 8a1 1 0 0 1 1-1h9.586l-3.293-3.293a1 1 0 0 1 1.414-1.414l5 5a1 1 0 0 1 0 1.414l-5 5a1 1 0 0 1-1.414-1.414L18.586 13H9a1 1 0 0 1-1-1Z" clipRule="evenodd">
+    </path></svg>
+);
