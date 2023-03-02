@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import { func, object, string } from 'prop-types';
 
 import ExpertiseAreas from './ExpertiseAreas';
 
-const PsikologCard = ({ data, innerRef, imgUrl }) => {
+const PsikologCard = ({ data, innerRef }) => {
+  const [imgUrl, setImgUrl] = useState('https://cdn.jotfor.ms/assets/img/v4/avatar/enterprise-default-avatar.png');
+
   const handleAssignClick = () => {
     window.open(data.appointmentForm, '_blank');
   };
@@ -12,14 +14,27 @@ const PsikologCard = ({ data, innerRef, imgUrl }) => {
   const handleArangeClick = () => {
     window.open(data.collaboratorLink, '_blank');
   }
+
+  useEffect(() => {
+    const imgArr = data.fotograf;
+    if (imgArr && imgArr[0]) {
+      if (!imgArr[0].includes('Array')) {
+        setImgUrl(imgArr[0]);
+      }
+    }
+  }, []);
+
   return (
     <div className="max-w-lg shadow-sm radius mx-auto my-4" ref={innerRef}>
       <div className="p-10 flex flex-row">
+
         <img
           src={imgUrl}
           className='w-32 h-32 radius-full border-2 border-blue-400'
           alt='avatar'
         />
+
+        
         <div className='pl-10' style={{ maxWidth: '600px' }}>
           <div>
             <p className='font-bold text-xl'>
@@ -84,13 +99,11 @@ const PsikologCard = ({ data, innerRef, imgUrl }) => {
 
 PsikologCard.propTypes = {
   innerRef: func,
-  data: object.isRequired,
-  imgUrl: string
+  data: object.isRequired
 };
 
 PsikologCard.defaultProps = {
-  innerRef: null,
-  imgUrl: 'https://randomuser.me/api/portraits/men/3.jpg'
+  innerRef: null
 };
 
 export default PsikologCard;

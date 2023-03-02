@@ -76,13 +76,12 @@ const PsikologsList = () => {
             </div>
           </div>
         ) : (
-          psikologs?.map((item, index) => {
+          psikologs?.map((item, index) => { 
             if (psikologs.length === index + 1) {
               return (
                 <PsikologCard
                   data={item}
                   innerRef={lastPsikologElementRef}
-                  imgUrl={`https://randomuser.me/api/portraits/men/${index + 5}.jpg`}
                   key={item.id}
                 />
               );
@@ -90,7 +89,6 @@ const PsikologsList = () => {
             return (
               <PsikologCard
                 data={item} key={item.id}
-                imgUrl={`https://randomuser.me/api/portraits/men/${index + 5}.jpg`}
               />
             );
           })
